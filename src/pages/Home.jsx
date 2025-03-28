@@ -20,7 +20,7 @@ export const Homepage = () => {
             toast.error("Room ID required")
             return
         }
-        navigate(`/editor/${roomId}`, {
+        navigate(`/editor/${roomId} `, {
             state: {
                 username,
                 roomId,
@@ -30,6 +30,7 @@ export const Homepage = () => {
     }
     const InputKeyHandler = (e) => {
         if (e.code === "Enter") {
+            console.log("Button clicked")
             JoinRoom()
         }
     }
