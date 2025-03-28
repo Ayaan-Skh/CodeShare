@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
-import Codemirror, { modes } from 'codemirror'
-import 'codemirror/mode/javascript/javascript'
-import 'codemirror/theme/darcula.css'
-import 'codemirror/lib/codemirror.css'
-import 'codemirror/addon/edit/closetag'
-import 'codemirror/addon/edit/closebrackets'
+import CodeMirror from 'codemirror'
+// import 'codemirror/mode/javascript/javascript'
+// import 'codemirror/themes/darcula.css'
+// import 'codemirror/lib/codemirror.css'
+// import 'codemirror/addon/edit/closetag'
+// import 'codemirror/addon/edit/closebrackets'
 
 
 const CodeEditor = () => {
   useEffect(() => {
     async function init() {
-      Codemirror.fromTextArea(document.getElementById('realTimeEditor'),{
+      CodeMirror.fromTextArea(document.getElementById('realTimeEditor'),{
         mode:{name:"javascript",json:true},
         theme:"dracula",
         autoCloseTage:true,
