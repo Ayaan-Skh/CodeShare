@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Client from "../components/Client";
+import {useLocation} from 'react-router-dom'
+
 import CodeEditor from "../components/CodeEditor";
+import { initSocket } from "../socket";
+import { ACTIONS } from "../components/Action";
 
 export const Editor = () => {
+    const socketRef=useRef(null);
+    const location=useLocation();
+    useEffect(()=>{
+        const init=async ()=>{
+            socketRef.current=await initSocket();
+            socketRef.current.emit(ACTIONS.JOIN,{
+                roomId,
+                username:location.state?.username,
+            })
+        }
+        init()
+    },[])
     const [clients, setClient] = useState([
         { socketId: 1, username: "Ayaan Shaikh" },
-        { socketId: 1, username: "Ayaan Shaikh" },
-        { socketId: 1, username: "Ayaan Shaikh" },
+        { socketId: 2, username: "Ayaan Shaikh" },
+        { socketId: 3, username: "Ayaan Shaikh" },
 
-        { socketId: 2, username: "Haris Shaikh" }
+        { socketId: 4, username: "Haris Shaikh" }
     ])
     return (
         <>
