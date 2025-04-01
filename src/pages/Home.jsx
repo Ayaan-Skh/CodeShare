@@ -17,7 +17,7 @@ export const Homepage = () => {
     }
     function JoinRoom() {
         if (!roomId || !username) {
-            toast.error("Room ID required")
+            toast.error("Room ID required and username required")
             return
         }
         navigate(`/editor/${roomId} `, {
