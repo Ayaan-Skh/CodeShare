@@ -13,7 +13,7 @@ export const Editor = () => {
         const init=async ()=>{
             socketRef.current=await initSocket();
             socketRef.current.emit(ACTIONS.JOIN,{
-                roomId,
+                // roomId,
                 username:location.state?.username,
             })
         }
